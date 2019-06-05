@@ -28,10 +28,6 @@ The script 03_model_01.py runs the machine learning model. It first carries out 
 Just me
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
 Thanks to my team leaders and fellow Fellows at Insight Data Science. Props too to the City of Toronto for using data science and machine learning to make informed policy decisions!
