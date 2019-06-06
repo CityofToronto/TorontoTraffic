@@ -12,8 +12,9 @@ sns.set_context('notebook')
 sns.set_palette('deep')
 palette = sns.color_palette()    
     
-def draw_hists(X, daily_users, printFigs, fname_append, nClusters)    
-
+def draw_hists(X, daily_users, printFigs, fname_append, nClusters):
+    
+    
     # %% Pie charts: i. percent of users, ii. percent of trips
     
     fieldname = 'pie'
