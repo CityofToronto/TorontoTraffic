@@ -18,7 +18,7 @@ The full set of data can be obtained by contacting the City of Toronto. I worked
 
 Start with 01_data_wrangling.py. This loads the data, puts it into pandas dataframes, and massages it into a format from which we can start obtaining insight. Specifically, the data are grouped and summarized by UserID at a daily frequency. Note that the anonymized UserIDs are rehashed every 24 hours, so there's no point in grouping at a lower frequency than daily.
 
-Next, you can get some basic insight into the data with 02_stats_plots.py. The most interesting bits here are the climatologies of typical traffic densities which can help you plan your commute to minimize your time sitting in traffic.
+Next, you can get some basic insight into the data with 02_stats_plots.py. The most interesting bits here are the climatologies of typical traffic densities which can help you plan your commute to minimize your time sitting in traffic. Scripts are broken up into cells with # %% dividers that can be understood by spyder.
 
 The script 03_model_01.py runs the machine learning model. It first carries out a principal component analysis to reduce feature dimensions from 5 to 2, and then runs a Gaussian Mixture Model to create 3 clusters that have "Commuter", "Commercial", and "Mixed" behavioural patterns. "Low Volume Users" (i.e. people who are definitely commuters since they only show up once or twice per day) are labelled before the algorithm runs.
 
