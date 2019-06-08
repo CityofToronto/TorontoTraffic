@@ -10,7 +10,7 @@ import seaborn as sns; #sns.set()
 import time as tm
 
 #my own modules
-import elipse_functions as ef
+import ellipse_functions as ef
 import evaluate_model as eva
 
 #Machine Learning: Gaussian Mixture Model for clustering
@@ -89,15 +89,14 @@ print(Xproj.shape)
 
 # %% draw the clusters on the principal axes
 
-plt.subplots(figsize=(4,4))
+fig, ax = plt.subplots(figsize=(4,4))
 sampleN = 1e5;
 PlotMe = Xproj[np.random.choice(Xproj.shape[0], int(sampleN), replace=False),:]
-ef.plot_gmm(model,PlotMe,label=True)
-plt.xlim(-10, 100)
-plt.ylim(-20,20)
-plt.xlabel('Principal Component 1')
-plt.ylabel('Principal Component 2')
-plt.show
+ef.plot_gmm(model,PlotMe,ax)
+ax.set_xlim(-10, 70)
+ax.set_ylim(-30, 30)
+ax.set_xlabel('Principal Component 1')
+ax.set_ylabel('Principal Component 2')
 
 if printFigs:
     plt.savefig('clusters'+'_'+test_id+'.png',dpi=300,bbox_inches="tight")
