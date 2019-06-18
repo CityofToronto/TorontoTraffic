@@ -134,7 +134,7 @@ def draw_hists(X, daily_users, printFigs, fname_append, nClusters):
                  bins=np.arange(0,400,15),alpha=0.6,
                  label=('Cluster ' + str(ii)))
         ax[ii].set_yscale('log')
-        ax[ii].set_ylim(1e1,8e6)
+        ax[ii].set_ylim(1e0,8e6)
         ax[ii].legend()
         ax[ii].minorticks_off()
 

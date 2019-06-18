@@ -39,6 +39,7 @@ test_id = 'PCA_GMM_03'
 start = tm.time()
 daily_users = pd.read_pickle(dataFile)
 end = tm.time()
+print('Done Loading')
 print(end-start)
 
 
@@ -81,14 +82,17 @@ print(end-start)
 
 # %% Principal Component analysis
 
+print('Doing PCA')
 pca = PCA(2) #project into 2 components
 Xproj = pca.fit_transform(X)
+print('Done PCA')
 print(X.shape)
 print(Xproj.shape)
 
 
 # %% draw the clusters on the principal axes
 
+print('Drawing Clusters')
 fig, ax = plt.subplots(figsize=(4,4))
 sampleN = 1e5;
 PlotMe = Xproj[np.random.choice(Xproj.shape[0], int(sampleN), replace=False),:]
@@ -100,10 +104,11 @@ ax.set_ylabel('Principal Component 2')
 
 if printFigs:
     plt.savefig('clusters'+'_'+test_id+'.png',dpi=300,bbox_inches="tight")
-
+print('Done Drawing Clusters')
 
 # %% apply model - i.e. do the clustering
 
+print('Start clustering algorithm')
 start = tm.time()
 
 #If you're doing PCA
@@ -115,8 +120,8 @@ X['cluster'] = model.predict(Xproj) #get cluster labels
 #X['cluster'] = model.predict(X) #get cluster labels
 
 end = tm.time()
+print('End Clustering algorithm')
 print(end-start)
-
 
 # %% print the results
 
@@ -135,9 +140,10 @@ stats.close()
 
 # %% evaluate model: draw histograms
 
+print('Start drawing histograms')
 eva.draw_hists(X, daily_users, printFigs=printFigs, fname_append=test_id, 
                nClusters=nClusters)
-
+print('End drawing histograms')
 
 # %% Add cluster information back to the original dataframe
 
@@ -206,7 +212,7 @@ nTrips = nTrips.rolling(15).median()
 fig, ax = plt.subplots()
 ax.stackplot(nTrips.index.values, nTrips.drop('All',axis=1).T,zorder=-5)
 ax.grid()
-ax.set_axisabove()
+#ax.set_axisabove()
 
 
 # %% Hmmm just do a regular line plot instead
